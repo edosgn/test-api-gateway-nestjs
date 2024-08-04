@@ -6,6 +6,8 @@ import { Logger } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.setGlobalPrefix('api/v1/');
+
   const options = new DocumentBuilder()
     .setTitle('TEST ALEGRA')
     .setDescription('Documentación de para consumo de servicios API Rest')
@@ -15,7 +17,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, options);
 
-  SwaggerModule.setup('/api/v1', app, document, {
+  SwaggerModule.setup('/docs/api/v1', app, document, {
     swaggerOptions: {
       filter: true,
     },
