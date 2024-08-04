@@ -6,7 +6,7 @@ import { LoginDto } from '@auth/domain/dtos/login.dto';
 
 import { ILoginUseCase } from '@auth/domain/ports/login.use-case';
 
-@ApiTags('posts')
+@ApiTags('authentication')
 @Controller('auth')
 export class AuthController {
   constructor(private loginUseCase: ILoginUseCase) {}
