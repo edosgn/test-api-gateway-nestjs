@@ -11,12 +11,12 @@ import {
 export class ClientProxyAlegra {
   constructor(private readonly configService: ConfigService) {}
 
-  clientProxyUsers(): ClientProxy {
+  clientProxyOrders(): ClientProxy {
     return ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
         urls: this.configService.get('QUEUES_URL'),
-        queue: QUEUES.USER_QUEUE,
+        queue: QUEUES.KITCHEN_QUEUE,
         queueOptions: {
           durable: false,
         },

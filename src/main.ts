@@ -3,10 +3,13 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger } from '@nestjs/common';
 
+import { GlobalExceptionFilter } from '@core/infrasctructure/filters/global-exception.filter';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.setGlobalPrefix('api/v1/');
+  app.useGlobalFilters(new GlobalExceptionFilter());
 
   const options = new DocumentBuilder()
     .setTitle('TEST ALEGRA')
