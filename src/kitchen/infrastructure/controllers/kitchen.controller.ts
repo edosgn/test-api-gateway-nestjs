@@ -4,7 +4,7 @@ import { ApiTags } from '@nestjs/swagger';
 
 import { ClientProxyAlegra } from '../rabbitmq/client-proxy';
 
-import { ORDER_MSG } from '@core/domain/enums/order-queue.enum';
+import { ORDER_MSG } from '@core/domain/enums/kitchen-queue.enum';
 
 import { CreateOrderDto } from '@kitchen/domain/dtos/create-order.dto';
 
