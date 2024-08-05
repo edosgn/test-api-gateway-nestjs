@@ -20,6 +20,8 @@
     "paths": {
       "@core/*": ["./src/core/*"],
       "@auth/*": ["./src/auth/*"],
+      "@kitchen/*": ["./src/kitchen/*"],
+      "@warehouse/*": ["./src/warehouse/*"],
     }
   }
 }
