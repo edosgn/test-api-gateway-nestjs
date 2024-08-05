@@ -1,0 +1,3 @@
+export enum ORDER_MSG {
+  CREATE_ORDER = 'CREATE_ORDER',
+}
