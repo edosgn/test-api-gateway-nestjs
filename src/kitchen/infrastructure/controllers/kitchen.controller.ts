@@ -3,8 +3,10 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
 import { ClientProxyAlegra } from '../rabbitmq/client-proxy';
-import { CreateOrderDto } from 'src/kitchen/domain/dtos/create-order.dto';
+
 import { ORDER_MSG } from '@core/domain/enums/order-queue.enum';
+
+import { CreateOrderDto } from '@kitchen/domain/dtos/create-order.dto';
 
 @ApiTags('kitchen')
 @Controller('kitchen/order')

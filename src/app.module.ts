@@ -10,9 +10,10 @@ import { CoreModule } from './core/core.module';
 import { KitchenModule } from './kitchen/kitchen.module';
 
 import { GlobalExceptionFilter } from '@core/infrasctructure/filters/global-exception.filter';
+import { WarehouseModule } from './warehouse/warehouse.module';
 
 @Module({
-  imports: [AuthModule, CoreModule, KitchenModule],
+  imports: [AuthModule, CoreModule, KitchenModule, WarehouseModule],
   controllers: [AppController],
   providers: [
     AppService,
