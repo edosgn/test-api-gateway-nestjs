@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 
 import { ApiTags } from '@nestjs/swagger';
 
@@ -27,5 +27,10 @@ export class WarehouseController {
   @Post('inventory/update')
   async updateInventory(@Body() payload: UpdateInventoryDto) {
     return this.clientProxy.send(INVENTORY_MSG.UPDATE_INVENTORY, payload);
+  }
+
+  @Get('inventory/get')
+  async getInventory() {
+    return this.clientProxy.send(INVENTORY_MSG.GET_INVENTORY, {});
   }
 }
