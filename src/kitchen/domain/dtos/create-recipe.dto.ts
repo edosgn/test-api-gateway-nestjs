@@ -1,11 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsNotEmpty,
-  IsString,
-  IsDate,
-  IsOptional,
-  IsObject,
-} from 'class-validator';
+import { IsNotEmpty, IsString, IsDate, IsOptional } from 'class-validator';
 
 export class CreateRecipeDto {
   @ApiProperty()
@@ -15,8 +9,8 @@ export class CreateRecipeDto {
 
   @ApiProperty()
   @IsNotEmpty()
-  @IsObject()
-  ingredients: object;
+  @IsString()
+  ingredients: string;
 
   @ApiProperty()
   @IsOptional()

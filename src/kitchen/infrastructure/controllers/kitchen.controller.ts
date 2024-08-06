@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 
 import { ApiTags } from '@nestjs/swagger';
 
@@ -24,5 +24,10 @@ export class KitchenController {
   @Post('recipe/create')
   async createRecipe(@Body() payload: CreateRecipeDto) {
     return this.clientProxy.send(RECIPE_MSG.CREATE_RECIPE, payload);
+  }
+
+  @Get('recipe/findAll')
+  async findAllRecipe() {
+    return this.clientProxy.send(RECIPE_MSG.FIND_ALL_RECIPE, {});
   }
 }
