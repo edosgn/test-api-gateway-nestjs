@@ -4,4 +4,5 @@ export enum ORDER_MSG {
 
 export enum RECIPE_MSG {
   CREATE_RECIPE = 'CREATE_RECIPE',
+  FIND_ALL_RECIPE = 'FIND_ALL_RECIPE',
 }
