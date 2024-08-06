@@ -1,3 +1,7 @@
 export enum ORDER_MSG {
   CREATE_ORDER = 'CREATE_ORDER',
 }
+
+export enum RECIPE_MSG {
+  CREATE_RECIPE = 'CREATE_RECIPE',
+}
