@@ -21,6 +21,11 @@ export class KitchenController {
     return this.clientProxy.send(ORDER_MSG.CREATE_ORDER, payload);
   }
 
+  @Get('order/findAll')
+  async findAll() {
+    return this.clientProxy.send(ORDER_MSG.FIND_ALL_ORDER, {});
+  }
+
   @Post('recipe/create')
   async createRecipe(@Body() payload: CreateRecipeDto) {
     return this.clientProxy.send(RECIPE_MSG.CREATE_RECIPE, payload);

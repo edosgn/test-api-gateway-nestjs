@@ -1,5 +1,6 @@
 export enum ORDER_MSG {
   CREATE_ORDER = 'CREATE_ORDER',
+  FIND_ALL_ORDER = 'FIND_ALL_ORDER',
 }
 
 export enum RECIPE_MSG {
