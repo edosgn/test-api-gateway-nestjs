@@ -35,4 +35,9 @@ export class KitchenController {
   async findAllRecipe() {
     return this.clientProxy.send(RECIPE_MSG.FIND_ALL_RECIPE, {});
   }
+
+  @Get('recipe/findOneRandom')
+  async findOneRAndomRecipe() {
+    return this.clientProxy.send(RECIPE_MSG.FIND_ONE_RANDOM_RECIPE, {});
+  }
 }
