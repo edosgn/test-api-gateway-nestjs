@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
 import { ApiTags } from '@nestjs/swagger';
 
@@ -19,9 +19,17 @@ export class WarehouseController {
 
   private clientProxy = this.clientProxyAlegra.clientProxyOrders();
 
-  @Post('order/create')
+  @Post('ingredient/create')
   async createOrder(@Body() payload: CreateIngredientDto) {
     return this.clientProxy.send(INGREDIENT_MSG.CREATE_INGREDIENT, payload);
+  }
+
+  @Get('ingredient/findOneBy/:name')
+  async getOneIngredientByName(@Param() name: string) {
+    return this.clientProxy.send(
+      INGREDIENT_MSG.GET_ONE_BY_NAME_INGREDIENT,
+      name,
+    );
   }
 
   @Post('inventory/update')
