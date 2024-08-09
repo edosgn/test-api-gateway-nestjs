@@ -27,7 +27,7 @@ export class WarehouseController {
   @Get('ingredient/findOneBy/:name')
   async getOneIngredientByName(@Param() name: string) {
     return this.clientProxy.send(
-      INGREDIENT_MSG.GET_ONE_BY_NAME_INGREDIENT,
+      INGREDIENT_MSG.GET_ONE_INGREDIENT_BY_NAME,
       name,
     );
   }
@@ -40,5 +40,13 @@ export class WarehouseController {
   @Get('inventory/get')
   async getInventory() {
     return this.clientProxy.send(INVENTORY_MSG.GET_INVENTORY, {});
+  }
+
+  @Get('inventory/findOneBy/:ingredient_id')
+  async getOneInventoryByIngredientId(@Param() ingredient_id: number) {
+    return this.clientProxy.send(
+      INVENTORY_MSG.GET_ONE_INVENTORY_BY_INGREDIENT_ID,
+      ingredient_id,
+    );
   }
 }
