@@ -14,7 +14,7 @@ import { CreateRecipeDto } from '@kitchen/domain/dtos/create-recipe.dto';
 export class KitchenController {
   constructor(private readonly clientProxyAlegra: ClientProxyAlegra) {}
 
-  private clientProxy = this.clientProxyAlegra.clientProxyOrders();
+  private clientProxy = this.clientProxyAlegra.clientProxyKitchen();
 
   @Post('order/create')
   async createOrder(@Body() payload: CreateOrderDto) {
