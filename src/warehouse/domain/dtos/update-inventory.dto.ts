@@ -5,6 +5,11 @@ export class UpdateInventoryDto {
   @ApiProperty()
   @IsNotEmpty()
   @IsNumber()
+  id: number;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsNumber()
   ingredient_id: number;
 
   @ApiProperty()
