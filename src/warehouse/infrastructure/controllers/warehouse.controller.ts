@@ -17,7 +17,7 @@ import { UpdateInventoryDto } from '@warehouse/domain/dtos/update-inventory.dto'
 export class WarehouseController {
   constructor(private readonly clientProxyAlegra: ClientProxyAlegra) {}
 
-  private clientProxy = this.clientProxyAlegra.clientProxyOrders();
+  private clientProxy = this.clientProxyAlegra.clientProxyWarehouse();
 
   @Post('ingredient/create')
   async createOrder(@Body() payload: CreateIngredientDto) {
@@ -37,7 +37,7 @@ export class WarehouseController {
     return this.clientProxy.send(INVENTORY_MSG.UPDATE_INVENTORY, payload);
   }
 
-  @Get('inventory/get')
+  @Get('inventory/findAll')
   async getInventory() {
     return this.clientProxy.send(INVENTORY_MSG.GET_INVENTORY, {});
   }

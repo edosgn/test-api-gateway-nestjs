@@ -11,7 +11,7 @@ import {
 export class ClientProxyAlegra {
   constructor(private readonly configService: ConfigService) {}
 
-  clientProxyOrders(): ClientProxy {
+  clientProxyWarehouse(): ClientProxy {
     return ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
