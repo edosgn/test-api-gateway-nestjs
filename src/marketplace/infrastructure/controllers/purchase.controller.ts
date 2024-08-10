@@ -7,6 +7,7 @@ import { ClientProxyAlegra } from '../rabbitmq/client-proxy';
 import { MARKETPLACE_MSG } from '@core/domain/enums/marketplace-queue.enum';
 
 import { CreatePurchaseDto } from 'src/marketplace/domain/dtos/create-purchase.dto';
+import { GetPurchaseExternalDto } from 'src/marketplace/domain/dtos/get-purchase-external.dto';
 
 @ApiTags('marketplace')
 @Controller('marketplace')
@@ -18,5 +19,13 @@ export class PurchaseController {
   @Post('purchase/create')
   async createPurchase(@Body() payload: CreatePurchaseDto) {
     return this.clientProxy.send(MARKETPLACE_MSG.CREATE_PURCHASE, payload);
+  }
+
+  @Post('purchase/external')
+  async getPurchaseExternal(@Body() payload: GetPurchaseExternalDto) {
+    return this.clientProxy.send(
+      MARKETPLACE_MSG.GET_PURCHASE_EXTERNAL,
+      payload,
+    );
   }
 }
