@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 
 import { ApiTags } from '@nestjs/swagger';
 
@@ -19,6 +19,11 @@ export class PurchaseController {
   @Post('purchase/create')
   async createPurchase(@Body() payload: CreatePurchaseDto) {
     return this.clientProxy.send(MARKETPLACE_MSG.CREATE_PURCHASE, payload);
+  }
+
+  @Get('purchase/findAll')
+  async findAllPurchase() {
+    return this.clientProxy.send(MARKETPLACE_MSG.FIND_ALL_PURCHASE, {});
   }
 
   @Post('purchase/external')
