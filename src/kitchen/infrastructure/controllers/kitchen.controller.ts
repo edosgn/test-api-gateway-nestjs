@@ -8,6 +8,7 @@ import { ORDER_MSG, RECIPE_MSG } from '@core/domain/enums/kitchen-queue.enum';
 
 import { CreateOrderDto } from '@kitchen/domain/dtos/create-order.dto';
 import { CreateRecipeDto } from '@kitchen/domain/dtos/create-recipe.dto';
+import { PreparationOrderDto } from '@kitchen/domain/dtos/peparation-order.dto';
 
 @ApiTags('kitchen')
 @Controller('kitchen')
@@ -19,6 +20,11 @@ export class KitchenController {
   @Post('order/create')
   async createOrder(@Body() payload: CreateOrderDto) {
     return this.clientProxy.send(ORDER_MSG.CREATE_ORDER, payload);
+  }
+
+  @Post('order/preparation')
+  async preparationOrder(@Body() payload: PreparationOrderDto) {
+    return this.clientProxy.send(ORDER_MSG.PREPARATION_ORDER, payload);
   }
 
   @Get('order/findAll')
