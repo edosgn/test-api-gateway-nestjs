@@ -3,14 +3,15 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger } from '@nestjs/common';
 
-import { GlobalExceptionFilter } from '@core/infrasctructure/filters/global-exception.filter';
+import { GlobalExceptionFilter } from '@core/infrastructure/filters/global-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: true,
-    methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+    origin: '*', // Reemplaza con la URL de tu aplicación Angular
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type',
   });
   app.setGlobalPrefix('api/v1/');
   app.useGlobalFilters(new GlobalExceptionFilter());

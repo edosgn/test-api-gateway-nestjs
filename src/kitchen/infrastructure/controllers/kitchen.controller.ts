@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
 import { ApiTags } from '@nestjs/swagger';
 
@@ -8,6 +8,7 @@ import { ORDER_MSG, RECIPE_MSG } from '@core/domain/enums/kitchen-queue.enum';
 
 import { CreateOrderDto } from '@kitchen/domain/dtos/create-order.dto';
 import { CreateRecipeDto } from '@kitchen/domain/dtos/create-recipe.dto';
+import { PreparationOrderDto } from '@kitchen/domain/dtos/peparation-order.dto';
 
 @ApiTags('kitchen')
 @Controller('kitchen')
@@ -21,6 +22,11 @@ export class KitchenController {
     return this.clientProxy.send(ORDER_MSG.CREATE_ORDER, payload);
   }
 
+  @Post('order/preparation')
+  async preparationOrder(@Body() payload: PreparationOrderDto) {
+    return this.clientProxy.send(ORDER_MSG.PREPARATION_ORDER, payload);
+  }
+
   @Get('order/findAll')
   async findAll() {
     return this.clientProxy.send(ORDER_MSG.FIND_ALL_ORDER, {});
@@ -29,6 +35,11 @@ export class KitchenController {
   @Post('recipe/create')
   async createRecipe(@Body() payload: CreateRecipeDto) {
     return this.clientProxy.send(RECIPE_MSG.CREATE_RECIPE, payload);
+  }
+
+  @Get('recipe/findOneBy/:id')
+  async findOneRecipeById(@Param() id: string) {
+    return this.clientProxy.send(RECIPE_MSG.FIND_ONE_RECIPE_BY_ID, id);
   }
 
   @Get('recipe/findAll')

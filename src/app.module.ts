@@ -9,7 +9,7 @@ import { AuthModule } from '@auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { KitchenModule } from './kitchen/kitchen.module';
 
-import { GlobalExceptionFilter } from '@core/infrasctructure/filters/global-exception.filter';
+import { GlobalExceptionFilter } from '@core/infrastructure/filters/global-exception.filter';
 import { WarehouseModule } from './warehouse/warehouse.module';
 import { MarketplaceModule } from './marketplace/marketplace.module';
 
