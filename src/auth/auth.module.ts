@@ -6,7 +6,7 @@ import { JwtStrategy } from './infrastructure/strategies/jwt.strategy';
 
 import { AuthController } from './infrastructure/controllers/auth.controller';
 
-import { ClientProxyAlegra } from './infrastructure/rabbitmq/client-proxy';
+import { ClientProxyMyAPI } from './infrastructure/rabbitmq/client-proxy';
 import { ILoginRepository } from './domain/repositories/login.repository';
 import { LoginRepositoryImpl } from './infrastructure/repositories/login.repository.impl';
 import { ILoginService } from './domain/services/login.service';
@@ -32,7 +32,7 @@ import { LoginUseCase } from './application/use-cases/login.use-case';
   controllers: [AuthController],
   providers: [
     JwtStrategy,
-    ClientProxyAlegra,
+    ClientProxyMyAPI,
     {
       provide: ILoginRepository,
       useClass: LoginRepositoryImpl,
@@ -46,6 +46,6 @@ import { LoginUseCase } from './application/use-cases/login.use-case';
       useClass: LoginUseCase,
     },
   ],
-  exports: [JwtModule, ClientProxyAlegra],
+  exports: [JwtModule, ClientProxyMyAPI],
 })
 export class AuthModule {}

@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 
 import { WarehouseController } from './infrastructure/controllers/warehouse.controller';
 
-import { ClientProxyAlegra } from './infrastructure/rabbitmq/client-proxy';
+import { ClientProxyMyAPI } from './infrastructure/rabbitmq/client-proxy';
 
 @Module({
   controllers: [WarehouseController],
-  providers: [ClientProxyAlegra],
-  exports: [ClientProxyAlegra],
+  providers: [ClientProxyMyAPI],
+  exports: [ClientProxyMyAPI],
 })
 export class WarehouseModule {}

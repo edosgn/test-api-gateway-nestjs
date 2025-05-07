@@ -8,7 +8,7 @@ import {
 } from '@nestjs/microservices';
 
 @Injectable()
-export class ClientProxyAlegra {
+export class ClientProxyMyAPI {
   constructor(private readonly configService: ConfigService) {}
 
   clientProxyKitchen(): ClientProxy {

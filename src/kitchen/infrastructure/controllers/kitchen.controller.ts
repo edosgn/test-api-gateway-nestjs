@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
 import { ApiTags } from '@nestjs/swagger';
 
-import { ClientProxyAlegra } from '../rabbitmq/client-proxy';
+import { ClientProxyMyAPI } from '../rabbitmq/client-proxy';
 
 import { ORDER_MSG, RECIPE_MSG } from '@core/domain/enums/kitchen-queue.enum';
 
@@ -13,9 +13,9 @@ import { PreparationOrderDto } from '@kitchen/domain/dtos/peparation-order.dto';
 @ApiTags('kitchen')
 @Controller('kitchen')
 export class KitchenController {
-  constructor(private readonly clientProxyAlegra: ClientProxyAlegra) {}
+  constructor(private readonly clientProxyMyAPI: ClientProxyMyAPI) {}
 
-  private clientProxy = this.clientProxyAlegra.clientProxyKitchen();
+  private clientProxy = this.clientProxyMyAPI.clientProxyKitchen();
 
   @Post('order/create')
   async createOrder(@Body() payload: CreateOrderDto) {
