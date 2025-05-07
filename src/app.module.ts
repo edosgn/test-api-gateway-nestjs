@@ -12,9 +12,11 @@ import { KitchenModule } from './kitchen/kitchen.module';
 import { GlobalExceptionFilter } from '@core/infrastructure/filters/global-exception.filter';
 import { WarehouseModule } from './warehouse/warehouse.module';
 import { MarketplaceModule } from './marketplace/marketplace.module';
+import { RateLimitModule } from '@core/infrastructure/rate-limit/rate-limit.module';
 
 @Module({
   imports: [
+    RateLimitModule.forRoot({ ttl: 30, limit: 30 }),
     AuthModule,
     CoreModule,
     KitchenModule,
