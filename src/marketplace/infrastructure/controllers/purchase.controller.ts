@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 
 import { ApiTags } from '@nestjs/swagger';
 
-import { ClientProxyAlegra } from '../rabbitmq/client-proxy';
+import { ClientProxyMyAPI } from '../rabbitmq/client-proxy';
 
 import { MARKETPLACE_MSG } from '@core/domain/enums/marketplace-queue.enum';
 
@@ -12,9 +12,9 @@ import { GetPurchaseExternalDto } from 'src/marketplace/domain/dtos/get-purchase
 @ApiTags('marketplace')
 @Controller('marketplace')
 export class PurchaseController {
-  constructor(private readonly clientProxyAlegra: ClientProxyAlegra) {}
+  constructor(private readonly clientProxyMyAPI: ClientProxyMyAPI) {}
 
-  private clientProxy = this.clientProxyAlegra.clientProxyMarketplace();
+  private clientProxy = this.clientProxyMyAPI.clientProxyMarketplace();
 
   @Post('purchase/create')
   async createPurchase(@Body() payload: CreatePurchaseDto) {

@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
 import { ApiTags } from '@nestjs/swagger';
 
-import { ClientProxyAlegra } from '../rabbitmq/client-proxy';
+import { ClientProxyMyAPI } from '../rabbitmq/client-proxy';
 
 import {
   INGREDIENT_MSG,
@@ -15,9 +15,9 @@ import { UpdateInventoryDto } from '@warehouse/domain/dtos/update-inventory.dto'
 @ApiTags('warehouse')
 @Controller('warehouse')
 export class WarehouseController {
-  constructor(private readonly clientProxyAlegra: ClientProxyAlegra) {}
+  constructor(private readonly clientProxyMyAPI: ClientProxyMyAPI) {}
 
-  private clientProxy = this.clientProxyAlegra.clientProxyWarehouse();
+  private clientProxy = this.clientProxyMyAPI.clientProxyWarehouse();
 
   @Post('ingredient/create')
   async createOrder(@Body() payload: CreateIngredientDto) {
