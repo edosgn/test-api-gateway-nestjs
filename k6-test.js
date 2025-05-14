@@ -7,7 +7,9 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('http://localhost:3000/api/v1/warehouse/ingredient/findOneBy/tomato');
+  const res = http.get(
+    'http://localhost:3000/api/v1/warehouse/ingredient/findOneBy/tomato',
+  );
 
   check(res, {
     'status es 200': (r) => r.status === 200,
